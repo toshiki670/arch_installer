@@ -73,3 +73,5 @@ send \"Y\n\"
 expect \"\\\$\"
 exit 0
 "
+
+exit 0
