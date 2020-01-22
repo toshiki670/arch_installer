@@ -4,7 +4,7 @@
 # Boot      : 255MB: EF00
 # Encrypted : FREE:  8E00
 
-path=/dev/$1
+path=$1
 
 if [[ $# != 1 ]]; then
   echo "${0##*/}: Requires 1 argument." >&1
