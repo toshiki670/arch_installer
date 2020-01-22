@@ -11,7 +11,7 @@ if [[ $# != 1 ]]; then
   exit 16
 fi
 
-if [[ -b ${path} ]]; then
+if [[ ! -b ${path} ]]; then
   echo "${0##*/}: $1 isn't a device file." >&1
   exit 32
 fi
