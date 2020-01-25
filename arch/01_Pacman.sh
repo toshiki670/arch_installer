@@ -34,3 +34,6 @@ if ! git clone https://github.com/toshiki670/linux_installer.git ~/installer; th
   exit 64
 fi
 
+# Time & date
+timedatectl set-ntp true
+
