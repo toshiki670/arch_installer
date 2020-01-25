@@ -1,6 +1,7 @@
 # Preparation
-## Download Pacman.sh
-1. `curl -fsSL https://raw.githubusercontent.com/toshiki670/linux_installer/master/arch/01_Pacman.sh > first.sh
-2. `sh first.sh`
+## Download Pacman.sh as first.sh
+1. Download `curl -fsSL http://bit.ly/arch_tsk > first.sh`
+2. Check for tempering `less first.sh`
+3. Execute `sh first.sh`
 
 
