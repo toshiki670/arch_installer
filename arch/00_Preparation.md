@@ -1,8 +1,6 @@
 # Preparation
-## Choose mirror.
-1. $ vim /etc/pacman.d/mirrorlist
+## Download Pacman.sh
+1. `curl -fsSL https://raw.githubusercontent.com/toshiki670/linux_installer/master/arch/01_Pacman.sh > first.sh
+2. `sh first.sh`
 
-## Install tool for setup
-1. `pacman -Sy`
-2. `pacman -S git expect`
-3. `git clone git@github.com:toshiki670/linux_installer.git`
+
