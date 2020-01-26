@@ -25,5 +25,5 @@ lvcreate -l 100%FREE system -n root
 # lvcreate -l 100%FREE system -n home
 
 mkfs.xfs /dev/mapper/system-root
-mkfs.xfs /dev/mapper/system-home
+# mkfs.xfs /dev/mapper/system-home
 

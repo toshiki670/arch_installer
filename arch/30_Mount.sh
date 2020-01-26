@@ -14,7 +14,8 @@ fi
 
 
 mount /dev/mapper/system-root /mnt
-mkdir /mnt/boot /mnt/home
+mkdir /mnt/boot
+# mkdir /mnt/boot /mnt/home
 mount ${path} /mnt/boot
-mount /dev/mapper/system-home /mnt/home
+# mount /dev/mapper/system-home /mnt/home
 
