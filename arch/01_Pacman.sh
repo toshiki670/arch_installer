@@ -15,7 +15,7 @@ mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.old
   echo 'Server = http://ftp.jaist.ac.jp/pub/Linux/ArchLinux/$repo/os/$arch'
   echo 'Server = https://ftp.jaist.ac.jp/pub/Linux/ArchLinux/$repo/os/$arch'
   echo 'Server = https://jpn.mirror.pkgbuild.com/$repo/os/$arch'
-} > /etc/pacman/d/mirrorlist
+} > /etc/pacman.d/mirrorlist
 
 # Update database
 pacman -Sy

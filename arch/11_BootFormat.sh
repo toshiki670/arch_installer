@@ -21,6 +21,6 @@ if ! type "mkfs.fat" > /dev/null 2>&1; then
   exit 64
 fi
 
-mkfs.fat -vcF 32 -n boot ${path}
+mkfs.fat -vcF 32 -n BOOT ${path}
 
 exit 0
