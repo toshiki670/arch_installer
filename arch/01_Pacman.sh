@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.old
+mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.old
 
 {
   echo '##'
