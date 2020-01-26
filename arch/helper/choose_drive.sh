@@ -1,7 +1,7 @@
 #!/bin/bash
 
 choose_drive() {
-  lsblk
+  lsblk -p
   read -p "Choose drive:" drive
   echo -n $drive
 }
