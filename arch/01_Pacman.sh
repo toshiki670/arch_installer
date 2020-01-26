@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.old
+mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.old
 
 {
   echo '##'
@@ -29,8 +29,11 @@ if ! pacman -S git expect; then
   exit 32
 fi
 
-if ! git clone git@github.com:toshiki670/linux_installer.git ~/; then
+if ! git clone https://github.com/toshiki670/linux_installer.git ~/installer; then
   echo "${0##*/}: Not cloned." >&1
   exit 64
 fi
+
+# Time & date
+timedatectl set-ntp true
 

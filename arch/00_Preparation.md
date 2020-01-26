@@ -1,8 +1,9 @@
 # Preparation
-## Choose mirror.
-1. $ vim /etc/pacman.d/mirrorlist
+## Download Pacman.sh as first.sh
+1. Download `curl -fsSL http://bit.ly/arch_tsk > first.sh`
+2. Check for tempering `less first.sh`
+3. Execute `sh first.sh`
 
-## Install tool for setup
-1. `pacman -Sy`
-2. `pacman -S git expect`
-3. `git clone git@github.com:toshiki670/linux_installer.git`
+## Execute direct
+1. Execute `sh <(curl -fsSL http://bit.ly/arch_tsk)`
+
