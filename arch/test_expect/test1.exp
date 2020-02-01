@@ -13,10 +13,9 @@ spawn sh ./stab.sh
 expect {
   "Enter:" {
     send "${EN}\n"
+    exp_continue
   }
-}
 
-expect {
   "Enter2:" {
     send "${EN2}\n"
   }
