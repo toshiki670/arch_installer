@@ -1,17 +1,24 @@
-#!/usr/bin/expect
+#!/bin/expect
 
 
 set EN [lindex $argv 0]
 
 
+set EN2 [lindex $argv 1]
 
 
-spawn sh ./test1.sh
+spawn sh ./stab.sh
 
 
 expect {
   "Enter:" {
     send "${EN}\n"
+  }
+}
+
+expect {
+  "Enter2:" {
+    send "${EN2}\n"
   }
 }
 
