@@ -23,4 +23,4 @@ fi
 
 mkfs.fat -vcF 32 -n BOOT ${path}
 
-exit 0
+exit $?

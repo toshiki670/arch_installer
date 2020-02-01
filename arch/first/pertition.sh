@@ -73,11 +73,5 @@ send \"Y\n\"
 expect \"\\\$\"
 exit 0
 "
-result=$?
-if [[ 0 != $result ]]; then
-  echo "${0##*/}: Expect didn't successfully." >&1
-  exit $result
-fi
 
-
-exit 0
+exit $?
