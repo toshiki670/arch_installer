@@ -1,77 +1,109 @@
-#!/bin/bash
+#!/bin/expect
 
 # $ gdisk /dev/nvme*n*
 # Boot      : 255MB: EF00
 # Encrypted : FREE:  8E00
 
-path=$1
 
-if [[ $# != 1 ]]; then
-  echo "${0##*/}: Requires 1 argument." >&1
-  exit 16
-fi
-
-if [[ ! -b ${path} ]]; then
-  echo "${0##*/}: $1 isn't a device file." >&1
-  exit 32
-fi
-
-if ! type "gdisk" > /dev/null 2>&1; then
-  echo "${0##*/}: gdisk command isn't found." >&1
-  exit 64
-fi
-
-
-expect -c "
 set timeout 4
-spawn gdisk \"${path}\"
 
-expect \"Command (? for help):\"
-send \"o\n\"
-expect \"Proceed? (Y/N):\"
-send \"Y\n\"
+spawn gdisk [lindex $argv 0]
 
-expect \"Command (? for help):\"
-send \"n\n\"
-expect \"Partition number\"
-send \"1\n\"
-expect \"First sector\"
-send \"\n\"
-expect \"Last sector\"
-send \"+255MB\n\"
-expect \"Hex code or GUID\"
-send \"EF00\n\"
+# Initialize GPT pertition
+expect {
+  -glob "Command (? for help):" {
+    send "o\n"
+    exp_continue
+  }
+  -glob "Proceed? (Y/N):" {
+    send "Y\n"
+  }
+}
 
-expect \"Command (? for help):\"
-send \"c\n\"
-expect \"Enter name\"
-send \"boot\n\"
+# Setup boot partition
+expect {
+  -glob "Command (? for help):" {
+    send "n\n"
+    exp_continue
+  }
+  -glob "Partition number" {
+    send "1\n"
+    exp_continue
+  }
+  -glob "First sector" {
+    send "\n"
+    exp_continue
+  }
+  -glob "Last sector" {
+    send "+255MB\n"
+    exp_continue
+  }
+  -glob "Hex code or GUID" {
+    send "EF00\n"
+  }
+}
 
-expect \"Command (? for help):\"
-send \"n\n\"
-expect \"Partition number\"
-send \"2\n\"
-expect \"First sector\"
-send \"\n\"
-expect \"Last sector\"
-send \"\n\"
-expect \"Hex code or GUID\"
-send \"8E00\n\"
+# rename boot partition
+expect {
+  -glob "Command (? for help):" {
+    send "c\n"
+    exp_continue
+  }
+  -glob "Enter name" {
+    send "boot\n"
+  }
+}
 
-expect \"Command (? for help):\"
-send \"c\n\"
-expect \"Partition number\"
-send \"2\n\"
-expect \"Enter name\"
-send \"encrypted\n\"
+# Setup main partition
+expect {
+  -glob "Command (? for help):" {
+    send "n\n"
+    exp_continue
+  }
+  -glob "Partition number" {
+    send "2\n"
+    exp_continue
+  }
+  -glob "First sector" {
+    send "\n"
+    exp_continue
+  }
+  -glob "Last sector" {
+    send "\n"
+    exp_continue
+  }
+  -glob "Hex code or GUID" {
+    send "8E00\n"
+  }
+}
 
-expect \"Command (? for help):\"
-send \"w\n\"
-expect \"Proceed? (Y/N):\"
-send \"Y\n\"
+# rename main
+expect {
+  -glob "Command (? for help):" {
+    send "c\n"
+    exp_continue
+  }
+  -glob "Partition number" {
+    send "2\n"
+  }
+  -glob "Enter name" {
+    send "encrypted\n"
+  }
+}
 
-expect \"\\\$\"
-exit 0
-"
+# Write
+expect {
+  -glob "Command (? for help):" {
+    send "w\n"
+    exp_continue
+  }
+  -glob "Proceed? (Y/N):" {
+    send "Y\n"
+  }
+}
 
-exit $?
+expect {
+  -glob "\\\$" {
+    exit 0
+  }
+}
