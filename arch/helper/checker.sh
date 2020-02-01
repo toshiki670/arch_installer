@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Exit codeが0以外の場合、プログラムを終了する
+# param
+# 1 : Exit code
+# 2 : Error message
 check_exit() {
   
   if [[ $# != 2 ]]; then
@@ -19,7 +23,8 @@ check_exit() {
 }
 
 
-
+# Nummeric == 0
+# No numericc == 1
 isNumeric() {
   expr $1 + 1 > /dev/null 2>&1
 
