@@ -21,7 +21,6 @@ lvm_on_luks(){
   result=$?; if [[ $result != 0 ]]; then return $result;fi
 
   pvcreate /dev/mapper/decrypted
-
   result=$?; if [[ $result != 0 ]]; then return $result;fi
 
   vgcreate system /dev/mapper/decrypted
