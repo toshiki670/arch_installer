@@ -85,6 +85,7 @@ expect {
   }
   -glob "Partition number" {
     send "2\n"
+    exp_continue
   }
   -glob "Enter name" {
     send "encrypted\n"
@@ -97,7 +98,7 @@ expect {
     send "w\n"
     exp_continue
   }
-  -glob "Proceed? (Y/N):" {
+  -glob "Do you want to proceed? (Y/N):" {
     send "Y\n"
   }
 }

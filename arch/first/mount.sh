@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mount() {
+mount_system() {
   if [[ $# != 1 ]]; then
     echo "${0##*/}: Requires 1 argument." >&1
     return 16
