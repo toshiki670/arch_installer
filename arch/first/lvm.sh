@@ -38,4 +38,6 @@ lvm_on_luks(){
   result=$?; if [[ $result != 0 ]]; then return $result;fi
 
   # mkfs.xfs /dev/mapper/system-home
+
+  return 0
 }
