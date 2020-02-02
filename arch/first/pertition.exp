@@ -98,7 +98,7 @@ expect {
     send "w\n"
     exp_continue
   }
-  -glob "Proceed? (Y/N):" {
+  -glob "Do you want to proceed? (Y/N):" {
     send "Y\n"
   }
 }
