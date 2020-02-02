@@ -30,7 +30,7 @@ main() {
   lvm_on_luks $main_path
   check_exit $? "Faild lvm"
 
-  mount $boot_path
+  mount_system $boot_path
   check_exit $? "Faild mount"
 
   install_system
