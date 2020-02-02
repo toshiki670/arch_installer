@@ -54,7 +54,7 @@ expect {
   }
 }
 
-# Setup main partition
+# Setup encrypted partition
 expect {
   -glob "Command (? for help):" {
     send "n\n"
@@ -77,7 +77,7 @@ expect {
   }
 }
 
-# rename main
+# rename encrypted
 expect {
   -glob "Command (? for help):" {
     send "c\n"
@@ -102,6 +102,7 @@ expect {
   }
 }
 
+# Exit
 expect {
   -glob "\\\$" {
     exit 0
