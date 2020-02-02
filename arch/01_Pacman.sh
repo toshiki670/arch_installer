@@ -35,5 +35,8 @@ if ! git clone https://github.com/toshiki670/linux_installer.git ~/installer; th
 fi
 
 # Time & date
-timedatectl set-ntp true
+if ! timedatectl set-ntp true; then
+  echo "${0##*/}: NTP enabled failed." >&1
+  exit 128
+fi
 
