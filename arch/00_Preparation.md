@@ -1,4 +1,7 @@
 # Preparation
+## Check and connect network
+1. `$ ping archlinux.jp`
+
 ## Download Pacman.sh as first.sh
 1. Download `curl -fsSL http://bit.ly/arch_tsk > first.sh`
 2. Check for tempering `less first.sh`
