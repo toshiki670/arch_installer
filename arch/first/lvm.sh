@@ -1,6 +1,5 @@
 #!/bin/bash
 
-path=$1
 
 lvm_on_luks(){
   if [[ $# != 1 ]]; then
@@ -8,16 +7,16 @@ lvm_on_luks(){
     exit 16
   fi
 
-  if [[ ! -b ${path} ]]; then
+  if [[ ! -b $1 ]]; then
     echo "${0##*/}: $1 isn't a device file." >&1
     exit 32
   fi
 
 
-  cryptsetup -v -c serpent-xts-plain64 -s 512 -h sha512 luksFormat ${path}
+  cryptsetup -v -c serpent-xts-plain64 -s 512 -h sha512 luksFormat $1
   result=$?; if [[ $result != 0 ]]; then return $result;fi
 
-  cryptsetup luksOpen ${path} decrypted
+  cryptsetup luksOpen $1 decrypted
   result=$?; if [[ $result != 0 ]]; then return $result;fi
 
   pvcreate /dev/mapper/decrypted
