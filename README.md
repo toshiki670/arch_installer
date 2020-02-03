@@ -5,6 +5,9 @@
 # How to
 
 # Version History
+## 0.2.0
+-  `01_Pacman.sh` から `zero.sh` に変更
+
 ## 0.1.1
 - バグ修正
 
