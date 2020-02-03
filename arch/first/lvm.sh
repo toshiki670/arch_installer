@@ -12,6 +12,17 @@ lvm_on_luks(){
     exit 32
   fi
 
+  # Enter password
+  echo "Set password for Device."
+  read -sp "New password: " password
+  echo
+  read -sp "Retype new password: " retype
+  echo
+
+  if [[ $password != $retype ]]; then
+    echo "${0##*/}: Sorry, passwords do not match." >&1
+    return 10
+  fi
 
   cryptsetup -v -c serpent-xts-plain64 -s 512 -h sha512 luksFormat $1
   result=$?; if [[ $result != 0 ]]; then return $result;fi
