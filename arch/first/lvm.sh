@@ -27,8 +27,14 @@ lvm_on_luks(){
   cryptsetup -v -c serpent-xts-plain64 -s 512 -h sha512 luksFormat $1
   result=$?; if [[ $result != 0 ]]; then return $result;fi
 
+  # Are you sure? (Type uppercase yes): YES
+  # Enter passphrase for /dev/sda2: 
+  # Verify passphrase: 
+
   cryptsetup luksOpen $1 decrypted
   result=$?; if [[ $result != 0 ]]; then return $result;fi
+
+  # Enter passphrase for /dev/sda2:
 
   pvcreate /dev/mapper/decrypted
   result=$?; if [[ $result != 0 ]]; then return $result;fi
