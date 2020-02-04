@@ -35,6 +35,14 @@ main() {
 
   install_system
   check_exit $? "Faild install"
+
+  clone_installer
+  check_exit $? "Faild clone"
+
+  arch-chroot /mnt
+  check_exit $? "Faild chroot"
+
+  exit 0
 }
 
 clone_installer(){
