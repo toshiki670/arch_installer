@@ -14,13 +14,13 @@ lvm_on_luks(){
 
   # Enter password
   echo "Set password for Device."
-  read -sp "New password: " password
+  read -sp "Enter passphrase: " passphrase
   echo
-  read -sp "Retype new password: " retype
+  read -sp "Verify passphrase: " verify
   echo
 
-  if [[ $password != $retype ]]; then
-    echo "${0##*/}: Sorry, passwords do not match." >&1
+  if [[ $passphrase != $verify ]]; then
+    echo "${0##*/}: Sorry, passphrases do not match." >&1
     return 10
   fi
 
