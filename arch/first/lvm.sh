@@ -24,17 +24,35 @@ lvm_on_luks(){
     return 10
   fi
 
-  cryptsetup -v -c serpent-xts-plain64 -s 512 -h sha512 luksFormat $1
+  expect -c "
+  set timeout 4
+  spawn cryptsetup -v -c serpent-xts-plain64 -s 512 -h sha512 luksFormat $1
+
+  expect \"Are you sure? (Type uppercase yes):\"
+  send \"YES\"
+
+  expect \"Enter passphrase for\"
+  send $passphrase
+
+  expect \"Verify passphrase:\"
+  send $verify
+
+  expect \"\\\$\"
+  exit 0
+  "
   result=$?; if [[ $result != 0 ]]; then return $result;fi
 
-  # Are you sure? (Type uppercase yes): YES
-  # Enter passphrase for /dev/sda2: 
-  # Verify passphrase: 
+  expect -c "
+  set timeout 4
+  spawn cryptsetup luksOpen $1 decrypted
 
-  cryptsetup luksOpen $1 decrypted
+  expect \"Enter passphrase for\"
+  send $passphrase
+
+  expect \"\\\$\"
+  exit 0
+  "
   result=$?; if [[ $result != 0 ]]; then return $result;fi
-
-  # Enter passphrase for /dev/sda2:
 
   pvcreate /dev/mapper/decrypted
   result=$?; if [[ $result != 0 ]]; then return $result;fi
