@@ -35,12 +35,8 @@ main() {
 
   install_system
   check_exit $? "Faild install"
-  
 }
 
-# format_boot 
-#
-# check_exit $? "Error mkfs.fat"
 
 
 main
