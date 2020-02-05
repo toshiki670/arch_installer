@@ -8,3 +8,11 @@ set_timezone() {
   return $?
 }
 
+set_locale() {
+  vim /etc/locale.gen
+  result=$?; if [[ $result != 0 ]]; then return $result;fi
+
+  locale-gen
+  return $?
+}
+
