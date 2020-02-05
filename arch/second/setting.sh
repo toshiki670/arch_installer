@@ -41,3 +41,17 @@ set_network() {
   } >> /etc/resolv.conf
   return $?
 }
+
+set_initramfs() {
+  {
+    echo '# MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)'
+    echo '# HOOKS=(base udev autodetect modconf keyboard keymap block encrypt lvm2 filesystems fsck)'
+  } >> /etc/resolv.conf
+  result=$?; if [[ $result != 0 ]]; then return $result;fi
+
+  vim /etc/resolv.conf
+  result=$?; if [[ $result != 0 ]]; then return $result;fi
+
+  mkinitcpio -p linux
+  return $?
+}
