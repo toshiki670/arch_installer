@@ -28,3 +28,16 @@ append_hosts() {
   } >> /etc/hosts
   return $?
 }
+
+set_network() {
+  systemctl enable dhcpcd
+  result=$?; if [[ $result != 0 ]]; then return $result;fi
+
+
+  # Add Google DNS
+  {
+    echo 'nameserver 8.8.8.8'
+    echo 'nameserver 8.8.4.4'
+  } >> /etc/resolv.conf
+  return $?
+}
