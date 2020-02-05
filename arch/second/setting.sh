@@ -16,7 +16,7 @@ set_locale() {
   return $?
 }
 
-append_hosts() {
+set_hosts() {
   prefix="Linux"
   length=8
   hostname=`cat /dev/urandom | tr -dc "[:alnum:]" | fold -w $length | head -n 1 | sed "s/^/${prefix}-/"`
