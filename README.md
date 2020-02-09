@@ -6,7 +6,10 @@
 
 # Version History
 ## 0.2.0
--  `01_Pacman.sh` から `zero.sh` に変更
+- `01_Pacman.sh` から `zero.sh` に変更
+- Cryptsetup のYESやパスワードを自動化
+- arch-chrootの実装
+- Setting の実装
 
 ## 0.1.1
 - バグ修正
