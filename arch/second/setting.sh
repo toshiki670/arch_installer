@@ -74,3 +74,25 @@ set_boot_loader() {
   } >> /boot/loader/entries/arch.conf
   return $?
 }
+
+add_user() {
+  lsblk -p
+  read -p "Enter username:" username
+
+  useradd -m -G wheel $username
+  result=$?; if [[ $result != 0 ]]; then return $result;fi
+
+  passwd $username
+  return $?
+}
+
+set_sudoer() {
+  echo "Enable wheel group as sudoer."
+  echo "Uncomment the below:"
+  echo "# %wheel ALL=(ALL) ALL"
+  echo
+  read -p "Press enter to continue"
+
+  visudo
+  return $?
+}
