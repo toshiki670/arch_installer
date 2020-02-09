@@ -12,11 +12,46 @@ lvm_on_luks(){
     exit 32
   fi
 
+  # Enter password
+  echo "Set password for Device."
+  read -sp "Enter passphrase: " passphrase
+  echo
+  read -sp "Verify passphrase: " verify
+  echo
 
-  cryptsetup -v -c serpent-xts-plain64 -s 512 -h sha512 luksFormat $1
+  if [[ $passphrase != $verify ]]; then
+    echo "${0##*/}: Sorry, passphrases do not match." >&1
+    return 10
+  fi
+
+  expect -c "
+  set timeout 4
+  spawn cryptsetup -v -c serpent-xts-plain64 -s 512 -h sha512 luksFormat $1
+
+  expect \"Are you sure? (Type uppercase yes):\"
+  send \"YES\"
+
+  expect \"Enter passphrase for\"
+  send $passphrase
+
+  expect \"Verify passphrase:\"
+  send $verify
+
+  expect \"\\\$\"
+  exit 0
+  "
   result=$?; if [[ $result != 0 ]]; then return $result;fi
 
-  cryptsetup luksOpen $1 decrypted
+  expect -c "
+  set timeout 4
+  spawn cryptsetup luksOpen $1 decrypted
+
+  expect \"Enter passphrase for\"
+  send $passphrase
+
+  expect \"\\\$\"
+  exit 0
+  "
   result=$?; if [[ $result != 0 ]]; then return $result;fi
 
   pvcreate /dev/mapper/decrypted
