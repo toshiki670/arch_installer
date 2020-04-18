@@ -25,7 +25,7 @@ add_package() {
     "expect"
   )
   if ! pacman -Sy ${packages[@]}; then
-    echo "${0##*/}: Not installed necesary package." >&1
+    echo "${0##*/}: Not installed necesary package." 1>&2
     exit 32
   fi
 }
@@ -35,7 +35,7 @@ clone_installer(){
   tag="0.2.0"
   repo_url="https://github.com/toshiki670/linux_installer.git"
   if ! git clone --branch ${tag} --single-branch ${repo_url} ~/installer; then
-    echo "${0##*/}: Not cloned." >&1
+    echo "${0##*/}: Not cloned." 1>&2
     exit 64
   fi
 }
@@ -44,7 +44,7 @@ clone_installer(){
 options(){
   # Time & date
   if ! timedatectl set-ntp true; then
-    echo "${0##*/}: NTP enabled failed." >&1
+    echo "${0##*/}: NTP enabled failed." 1>&2
     exit 128
   fi
 }

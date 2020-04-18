@@ -2,12 +2,12 @@
 
 mount_system() {
   if [[ $# != 1 ]]; then
-    echo "${0##*/}: Requires 1 argument." >&1
+    echo "${0##*/}: Requires 1 argument." 1>&2
     return 16
   fi
 
   if [[ ! -b $1 ]]; then
-    echo "${0##*/}: $1 isn't a device file." >&1
+    echo "${0##*/}: $1 isn't a device file." 1>&2
     return 32
   fi
 
