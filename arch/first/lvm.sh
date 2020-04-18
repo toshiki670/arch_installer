@@ -29,13 +29,13 @@ lvm_on_luks(){
   spawn cryptsetup -v -c serpent-xts-plain64 -s 512 -h sha512 luksFormat $1
 
   expect \"Are you sure? (Type uppercase yes):\"
-  send \"YES\"
+  send \"YES\n\"
 
   expect \"Enter passphrase for\"
-  send $passphrase
+  send \"${passphrase}\n\"
 
   expect \"Verify passphrase:\"
-  send $verify
+  send \"${verify}\n\"
 
   expect \"\\\$\"
   exit 0
@@ -47,7 +47,7 @@ lvm_on_luks(){
   spawn cryptsetup luksOpen $1 decrypted
 
   expect \"Enter passphrase for\"
-  send $passphrase
+  send \"${passphrase}\n\"
 
   expect \"\\\$\"
   exit 0
