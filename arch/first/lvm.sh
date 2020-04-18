@@ -3,12 +3,12 @@
 
 lvm_on_luks(){
   if [[ $# != 1 ]]; then
-    echo "${0##*/}: Requires 1 argument." >&1
+    echo "${0##*/}: Requires 1 argument." 1>&2
     exit 16
   fi
 
   if [[ ! -b $1 ]]; then
-    echo "${0##*/}: $1 isn't a device file." >&1
+    echo "${0##*/}: $1 isn't a device file." 1>&2
     exit 32
   fi
 
@@ -20,7 +20,7 @@ lvm_on_luks(){
   echo
 
   if [[ $passphrase != $verify ]]; then
-    echo "${0##*/}: Sorry, passphrases do not match." >&1
+    echo "${0##*/}: Sorry, passphrases do not match." 1>&2
     return 10
   fi
 

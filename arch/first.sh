@@ -49,7 +49,7 @@ clone_installer(){
   tag="0.2.0"
   repo_url="https://github.com/toshiki670/linux_installer.git"
   if ! git clone --branch ${tag} --single-branch ${repo_url} /mnt/root/installer; then
-    echo "${0##*/}: Not cloned." >&1
+    echo "${0##*/}: Not cloned." 1>&2
     return 64
   fi
 }
