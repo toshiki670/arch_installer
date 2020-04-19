@@ -11,6 +11,8 @@ core_pkg=(
   "linux"
   "linux-firmware"
   "dhcpcd"
+  "openssh"
+  "wget"
 )
 kde_pkg=(
   "plasma"
@@ -20,6 +22,7 @@ kde_pkg=(
   "ark"
   "gwenview"
   "cryfs"
+  "gitg"
 )
 favorite_pkg=(
   "zsh"
