@@ -12,14 +12,14 @@ fi
 
 
 mount /dev/mapper/system-root /mnt
-result=$?; if [[ $result != 0 ]]; then exit $result;fi
+q=$?; if [[ $q != 0 ]]; then exit $q;fi
 
 mkdir /mnt/boot
 # mkdir /mnt/boot /mnt/home
-result=$?; if [[ $result != 0 ]]; then exit $result;fi
+q=$?; if [[ $q != 0 ]]; then exit $q;fi
 
 mount $1 /mnt/boot
 # mount /dev/mapper/system-home /mnt/home
-result=$?; if [[ $result != 0 ]]; then exit $result;fi
+q=$?; if [[ $q != 0 ]]; then exit $q;fi
 
 exit 0

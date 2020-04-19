@@ -28,10 +28,10 @@ favorite_pkg=(
 )
 
 pacstrap /mnt ${core_pkg[@]} ${kde_pkg[@]} ${favorite_pkg[@]}
-result=$?; if [[ $result != 0 ]]; then exit $result;fi
+q=$?; if [[ $q != 0 ]]; then exit $q;fi
 
 genfstab -U /mnt >> /mnt/etc/fstab
-result=$?; if [[ $result != 0 ]]; then exit $result;fi
+q=$?; if [[ $q != 0 ]]; then exit $q;fi
 
 exit 0
 

@@ -39,7 +39,7 @@ send \"${verify}\n\"
 expect \"\\\$\"
 exit 0
 "
-result=$?; if [[ $result != 0 ]]; then exit $result;fi
+q=$?; if [[ $q != 0 ]]; then exit $q;fi
 
 expect -c "
 set timeout 4
@@ -51,16 +51,16 @@ send \"${passphrase}\n\"
 expect \"\\\$\"
 exit 0
 "
-result=$?; if [[ $result != 0 ]]; then exit $result;fi
+q=$?; if [[ $q != 0 ]]; then exit $q;fi
 
 pvcreate /dev/mapper/decrypted
-result=$?; if [[ $result != 0 ]]; then exit $result;fi
+q=$?; if [[ $q != 0 ]]; then exit $q;fi
 
 vgcreate system /dev/mapper/decrypted
-result=$?; if [[ $result != 0 ]]; then exit $result;fi
+q=$?; if [[ $q != 0 ]]; then exit $q;fi
 
 lvcreate -l 100%FREE system -n root
-result=$?; if [[ $result != 0 ]]; then exit $result;fi
+q=$?; if [[ $q != 0 ]]; then exit $q;fi
 
 
 # For next version
@@ -68,7 +68,7 @@ result=$?; if [[ $result != 0 ]]; then exit $result;fi
 # lvcreate -l 100%FREE system -n home
 
 mkfs.xfs /dev/mapper/system-root
-result=$?; if [[ $result != 0 ]]; then exit $result;fi
+q=$?; if [[ $q != 0 ]]; then exit $q;fi
 
 # mkfs.xfs /dev/mapper/system-home
 

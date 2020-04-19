@@ -2,7 +2,7 @@
 
 set_timezone() {
   ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
-  result=$?; if [[ $result != 0 ]]; then return $result;fi
+  q=$?; if [[ $q != 0 ]]; then return $q;fi
 
   hwclock --systohc --utc
   return $?
@@ -10,7 +10,7 @@ set_timezone() {
 
 set_locale() {
   vim /etc/locale.gen
-  result=$?; if [[ $result != 0 ]]; then return $result;fi
+  q=$?; if [[ $q != 0 ]]; then return $q;fi
 
   locale-gen
   return $?
@@ -31,7 +31,7 @@ set_hosts() {
 
 set_network() {
   systemctl enable dhcpcd
-  result=$?; if [[ $result != 0 ]]; then return $result;fi
+  q=$?; if [[ $q != 0 ]]; then return $q;fi
 
 
   # Add Google DNS
@@ -47,10 +47,10 @@ set_initramfs() {
     echo '# MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)'
     echo '# HOOKS=(base udev autodetect modconf keyboard keymap block encrypt lvm2 filesystems fsck)'
   } >> /etc/mkinitcpio.conf
-  result=$?; if [[ $result != 0 ]]; then return $result;fi
+  q=$?; if [[ $q != 0 ]]; then return $q;fi
 
   vim /etc/mkinitcpio.conf
-  result=$?; if [[ $result != 0 ]]; then return $result;fi
+  q=$?; if [[ $q != 0 ]]; then return $q;fi
 
   mkinitcpio -p linux
   return $?
@@ -58,7 +58,7 @@ set_initramfs() {
 
 set_boot_loader() {
   bootctl --path=/boot install
-  result=$?; if [[ $result != 0 ]]; then return $result;fi
+  q=$?; if [[ $q != 0 ]]; then return $q;fi
 
   crypto_uuid=`lsblk -Pfip |\
     grep 'crypto_LUKS' |\
@@ -80,7 +80,7 @@ add_user() {
   read -p "Enter username:" username
 
   useradd -m -G wheel $username
-  result=$?; if [[ $result != 0 ]]; then return $result;fi
+  q=$?; if [[ $q != 0 ]]; then return $q;fi
 
   passwd $username
   return $?
