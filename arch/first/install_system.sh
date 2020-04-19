@@ -9,6 +9,8 @@ core_pkg=(
   "base"
   "base-devel"
   "linux"
+  "linux-firmware"
+  "dhcpcd"
 )
 kde_pkg=(
   "plasma"
