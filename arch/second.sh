@@ -1,33 +1,32 @@
 #!/bin/bash
 
 source ./helper/checker.sh
-source ./second/setting.sh
 
 
 main() {
 
-  set_timezone
+  ./second/set_timezone.sh
   check_exit $? "Faild set timezone"
 
-  set_locale
+  ./second/set_locale.sh
   check_exit $? "Faild set locale"
 
-  set_hosts
+  ./second/set_hosts.sh
   check_exit $? "Faild set hosts"
 
-  set_network
+  ./second/set_network.sh
   check_exit $? "Faild set network"
 
-  set_initramfs
+  ./second/set_initramfs.sh
   check_exit $? "Faild set initramfs"
 
-  set_boot_loader
+  ./second/set_boot_loader.sh
   check_exit $? "Faild set boot loader"
 
   passwd
   check_exit $? "Faild set root password"
 
-  add_user
+  ./second/set_new_user.sh
   check_exit $? "Faild add user"
 }
 
