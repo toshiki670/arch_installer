@@ -5,6 +5,9 @@
 # How to
 
 # Version History
+## new
+- それぞれの処理を単体でも実行できるように最適化
+
 ## 0.2.0
 - `01_Pacman.sh` から `zero.sh` に変更
 - Cryptsetup のYESやパスワードを自動化
