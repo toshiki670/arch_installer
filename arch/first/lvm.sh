@@ -20,7 +20,7 @@ echo
 
 if [[ $passphrase != $verify ]]; then
   echo "${0##*/}: Sorry, passphrases do not match." 1>&2
-  return 10
+  exit 10
 fi
 
 expect -c "
@@ -39,7 +39,7 @@ send \"${verify}\n\"
 expect \"\\\$\"
 exit 0
 "
-result=$?; if [[ $result != 0 ]]; then return $result;fi
+result=$?; if [[ $result != 0 ]]; then exit $result;fi
 
 expect -c "
 set timeout 4
@@ -51,16 +51,16 @@ send \"${passphrase}\n\"
 expect \"\\\$\"
 exit 0
 "
-result=$?; if [[ $result != 0 ]]; then return $result;fi
+result=$?; if [[ $result != 0 ]]; then exit $result;fi
 
 pvcreate /dev/mapper/decrypted
-result=$?; if [[ $result != 0 ]]; then return $result;fi
+result=$?; if [[ $result != 0 ]]; then exit $result;fi
 
 vgcreate system /dev/mapper/decrypted
-result=$?; if [[ $result != 0 ]]; then return $result;fi
+result=$?; if [[ $result != 0 ]]; then exit $result;fi
 
 lvcreate -l 100%FREE system -n root
-result=$?; if [[ $result != 0 ]]; then return $result;fi
+result=$?; if [[ $result != 0 ]]; then exit $result;fi
 
 
 # For next version
@@ -68,8 +68,8 @@ result=$?; if [[ $result != 0 ]]; then return $result;fi
 # lvcreate -l 100%FREE system -n home
 
 mkfs.xfs /dev/mapper/system-root
-result=$?; if [[ $result != 0 ]]; then return $result;fi
+result=$?; if [[ $result != 0 ]]; then exit $result;fi
 
 # mkfs.xfs /dev/mapper/system-home
 
-return 0
+exit 0
