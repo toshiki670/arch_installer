@@ -23,3 +23,6 @@ rm -rf yay
 # For mkinitcpio
 yay -S aic94xx-firmware
 yay -S wd719x-firmware
+
+# For git flow
+yay -S gitflow-avh
