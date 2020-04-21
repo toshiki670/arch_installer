@@ -10,6 +10,7 @@ core_pkg=(
   "base-devel"
   "linux"
   "linux-firmware"
+  "xfsprogs"
   "dhcpcd"
   "openssh"
   "wget"
