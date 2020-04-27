@@ -28,6 +28,9 @@ main() {
 
   ./second/set_new_user.sh
   check_exit $? "Faild add user"
+
+  pkgfile --update
+  check_exit $? "Faild not update pkgfile"
 }
 
 
