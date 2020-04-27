@@ -12,6 +12,7 @@ core_pkg=(
   "linux-firmware"
   "xfsprogs"
   "pacman-contrib"
+  "pkgfile"
   "dhcpcd"
   "openssh"
   "wget"
