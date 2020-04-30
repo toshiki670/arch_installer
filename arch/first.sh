@@ -3,11 +3,6 @@
 source ./helper/checker.sh
 source ./helper/chooser.sh
 
-source ./first/boot_format.sh
-source ./first/install_system.sh
-source ./first/lvm.sh
-source ./first/mount.sh
-
 
 main() {
 
@@ -24,16 +19,16 @@ main() {
   read -p "Choose boot drive:" boot_path
   read -p "Choose main drive:" main_path
 
-  format_boot $boot_path 
+  sh ./first/format_boot.sh $boot_path
   check_exit $? "Faild boot format"
 
-  lvm_on_luks $main_path
+  sh ./first/lvm.sh $main_path
   check_exit $? "Faild lvm"
 
-  mount_system $boot_path
+  sh ./first/mount.sh $boot_path
   check_exit $? "Faild mount"
 
-  install_system
+  sh ./first/install_system.sh
   check_exit $? "Faild install"
 
   clone_installer
@@ -46,7 +41,7 @@ main() {
 }
 
 clone_installer(){
-  tag="0.2.1"
+  tag="0.3.0"
   repo_url="https://github.com/toshiki670/linux_installer.git"
   if ! git clone --branch ${tag} --single-branch ${repo_url} /mnt/root/installer; then
     echo "${0##*/}: Not cloned." 1>&2
