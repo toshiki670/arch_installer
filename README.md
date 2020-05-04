@@ -1,23 +1,44 @@
-<a href="LICENSE" alt="MIT License"><img alt="GitHub" src="https://img.shields.io/github/license/toshiki670/linux_installer?style=flat-square"></a>
+# ArchInstaller
 
-# ArchLinux installer
+Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/arch_installer`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-# How to
+TODO: Delete this and the text above, and describe your gem
 
-# Version History
-## 0.3.0
-- それぞれの処理を単体でも実行できるように最適化
-- デフォルトパッケージの見直し
+## Installation
 
-## 0.2.0
-- `01_Pacman.sh` から `zero.sh` に変更
-- Cryptsetup のYESやパスワードを自動化
-- arch-chrootの実装
-- Setting の実装
+Add this line to your application's Gemfile:
 
-## 0.1.1
-- バグ修正
+```ruby
+gem 'arch_installer'
+```
 
-## 0.1.0
-- ドライブ構築などを行う `First.sh` を追加
-- ファイル構成の見直し
+And then execute:
+
+    $ bundle install
+
+Or install it yourself as:
+
+    $ gem install arch_installer
+
+## Usage
+
+TODO: Write usage instructions here
+
+## Development
+
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+
+To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/arch_installer. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/arch_installer/blob/master/CODE_OF_CONDUCT.md).
+
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+
+Everyone interacting in the ArchInstaller project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/arch_installer/blob/master/CODE_OF_CONDUCT.md).
