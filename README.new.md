@@ -34,13 +34,17 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/arch_installer. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/arch_installer/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on [GitHub][source]. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct][conduct].
 
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the [MIT License][license].
 
 ## Code of Conduct
 
-Everyone interacting in the ArchInstaller project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/arch_installer/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the ArchInstaller project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct][conduct].
+
+[source]:https://github.com/toshiki670/arch_installer
+[license]:https://github.com/toshiki670/arch_installer/blob/master/LICENSE
+[conduct]:https://github.com/toshiki670/arch_installer/blob/master/CODE_OF_CONDUCT.md
