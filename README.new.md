@@ -40,6 +40,10 @@ The gem is available as open source under the terms of the [MIT License][license
 
 Everyone interacting in the ArchInstaller project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct][conduct].
 
+## Other links
+- [Version History][version]
+
 [source]:https://github.com/toshiki670/arch_installer
 [license]:https://github.com/toshiki670/arch_installer/blob/master/LICENSE
 [conduct]:https://github.com/toshiki670/arch_installer/blob/master/CODE_OF_CONDUCT.md
+[version]:VERSION.md
