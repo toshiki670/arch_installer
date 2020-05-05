@@ -1,5 +1,5 @@
-require "bundler/setup"
-require "arch_installer"
+require 'bundler/setup'
+require 'arch_installer'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
