@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'arch_installer/install/system'
 
 require 'singleton'

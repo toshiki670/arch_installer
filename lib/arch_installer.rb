@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'arch_installer/install'
 require 'arch_installer/runner'
 require 'arch_installer/version'
