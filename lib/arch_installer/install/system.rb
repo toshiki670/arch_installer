@@ -15,7 +15,7 @@ module ArchInstaller
         'dhcpcd',
         'openssh',
         'wget'
-      ]
+      ].map(&:freeze).freeze
 
       KDE_PKG = [
         'plasma',
@@ -26,7 +26,7 @@ module ArchInstaller
         'gwenview',
         'cryfs',
         'gitg'
-      ]
+      ].map(&:freeze).freeze
 
       # Favorite_pkg
       DOTFILES_PKG = [
@@ -35,7 +35,7 @@ module ArchInstaller
         'vim',
         'neovim',
         'words'
-      ]
+      ].map(&:freeze).freeze
 
       def pacstrap
         p 'ok'
