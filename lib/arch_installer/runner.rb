@@ -16,7 +16,7 @@ module ArchInstaller
       p installer
     end
 
-    desc 'setting', %q(Setting after `chroot'.)
+    desc 'setting', "Setting after `chroot'."
     def setting
       puts 'TODO: setting'
     end

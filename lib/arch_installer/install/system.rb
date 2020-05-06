@@ -3,7 +3,6 @@
 module ArchInstaller
   class Install
     class System
-
       CORE_PKG = [
         'base',
         'base-devel',
