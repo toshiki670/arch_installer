@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'ArchInstaller'
+require 'bundler/setup'
+require 'arch_installer/runner'
 
-
+ArchInstaller::Runner.start
