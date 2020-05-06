@@ -38,7 +38,7 @@ module ArchInstaller
       ]
 
       def pacstrap
-        p "ok"
+        p 'ok'
       end
     end
   end
