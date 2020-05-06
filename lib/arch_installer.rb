@@ -1,5 +1,6 @@
-require 'arch_installer/version'
+require 'arch_installer/install'
 require 'arch_installer/runner'
+require 'arch_installer/version'
 
 module ArchInstaller
   class Error < StandardError; end

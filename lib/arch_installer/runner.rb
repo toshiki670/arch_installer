@@ -1,5 +1,7 @@
-require 'thor'
+require 'arch_installer/install'
 require 'arch_installer/version'
+
+require 'thor'
 
 module ArchInstaller
   class Runner < Thor
