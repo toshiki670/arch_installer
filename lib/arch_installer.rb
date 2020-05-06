@@ -4,11 +4,10 @@ require 'arch_installer/version'
 
 module ArchInstaller
   class Error < StandardError; end
-  # Your code goes here...
 
   class << self
-    def test
-      puts "main test method"
+    def install
+      ArchInstaller::Install.instance
     end
   end
 end

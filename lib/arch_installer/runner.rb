@@ -9,7 +9,9 @@ module ArchInstaller
 
     desc 'install', %q{Install archlinux system}
     def install
-      puts 'TODO: install'
+      installer = ArchInstaller::Install.instance
+
+      p installer
     end
 
     desc 'setting', %q{Setting after `chroot'}
