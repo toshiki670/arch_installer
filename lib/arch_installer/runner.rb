@@ -9,14 +9,14 @@ module ArchInstaller
   class Runner < Thor
     package_name 'ArchInstaller'
 
-    desc 'install', %q{Install archlinux system}
+    desc 'install', 'Install archlinux system.'
     def install
       installer = ArchInstaller::Install.instance
 
       p installer
     end
 
-    desc 'setting', %q{Setting after `chroot'}
+    desc 'setting', %q(Setting after `chroot'.)
     def setting
       puts 'TODO: setting'
     end
