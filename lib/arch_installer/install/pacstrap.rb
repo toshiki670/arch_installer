@@ -2,7 +2,7 @@
 
 module ArchInstaller
   class Install
-    class System
+    class Pacstrap
       CORE_PKG = [
         'base',
         'base-devel',
