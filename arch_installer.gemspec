@@ -36,4 +36,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', '~> 0.82.0'
 
   spec.add_dependency 'thor', '>= 1.0.1'
+  spec.add_dependency 'ruby_expect', '>= 1.7.4'
 end

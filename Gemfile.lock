@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     arch_installer (0.3.0)
+      ruby_expect (>= 1.7.4)
       thor (>= 1.0.1)
 
 GEM
@@ -43,6 +44,7 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
     ruby-progressbar (1.10.1)
+    ruby_expect (1.7.4)
     thor (1.0.1)
     unicode-display_width (1.7.0)
 
