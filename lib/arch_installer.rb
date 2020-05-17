@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'arch_installer/cli'
+require 'arch_installer/command'
 require 'arch_installer/install'
 require 'arch_installer/install_cli'
 require 'arch_installer/logger'
