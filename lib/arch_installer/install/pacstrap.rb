@@ -3,6 +3,8 @@
 module ArchInstaller
   class Install
     class Pacstrap
+      CMD_NAME = 'pacstrap'
+
       CORE_PKG = [
         'base',
         'base-devel',
