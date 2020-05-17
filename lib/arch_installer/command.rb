@@ -5,7 +5,7 @@ require 'open3'
 module ArchInstaller
   class Command
     def self.exec(*args)
-      Open3.popen3(*args) do |stdin, stdout, stderr, wait_thr|
+      Open3.popen3(*args) do |stdin, stdout, stderr, _|
         stdin.close_write
 
         stdout.each_line do |line|
@@ -23,4 +23,3 @@ module ArchInstaller
     end
   end
 end
-
