@@ -21,6 +21,10 @@ module ArchInstaller
       nil
     end
 
+    def is_a?(*args)
+      @base.is_a?(*args)
+    end
+
     private
 
     def default_output
