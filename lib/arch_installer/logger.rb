@@ -10,14 +10,14 @@ module ArchInstaller
 
     DEFAULT_LEVEL = ::Logger::Severity::INFO
 
-    attr_reader :logger
+    attr_reader :base
 
     def initialize
       init(STDOUT, level: ::Logger::Severity::DEBUG)
     end
 
     def init(logdev = default_output, level: ::ArchInstaller::Logger::DEFAULT_LEVEL)
-      @logger = ::Logger.new(logdev, level: level)
+      @base = ::Logger.new(logdev, level: level)
       nil
     end
 
@@ -28,11 +28,11 @@ module ArchInstaller
     end
 
     def __getobj__
-      @logger
+      @base
     end
 
-    def __setobj__(logger)
-      @logger = logger
+    def __setobj__(base)
+      @base = base
     end
   end
 end
