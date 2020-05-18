@@ -17,7 +17,7 @@ module ArchInstaller
     end
 
     def logger
-      ArchInstaller::Logger.instance.logger
+      ArchInstaller::Logger.instance
     end
 
     def logger_init(*args)
