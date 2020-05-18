@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
+require 'delegate'
 require 'singleton'
 require 'logger'
 
 module ArchInstaller
-  class Logger
+  class Logger < Delegator
     include Singleton
 
     DEFAULT_LEVEL = ::Logger::Severity::INFO
@@ -24,6 +25,14 @@ module ArchInstaller
 
     def default_output
       "./#{Time.new.strftime('%F_%T')}.log"
+    end
+
+    def __getobj__
+      @logger
+    end
+
+    def __setobj__(logger)
+      @logger = logger
     end
   end
 end
