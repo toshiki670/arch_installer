@@ -22,7 +22,7 @@ module ArchInstaller
     end
 
     def is_a?(*args)
-      @base.is_a?(*args)
+      @base.is_a?(*args) || super(*args)
     end
 
     private
