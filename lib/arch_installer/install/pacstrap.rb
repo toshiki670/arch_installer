@@ -38,8 +38,14 @@ module ArchInstaller
         'words'
       ].map(&:freeze).freeze
 
-      def pacstrap
-        p 'ok'
+      def initialize
+        @packages = []
+      end
+
+      def run
+      end
+
+      def command
       end
     end
   end
